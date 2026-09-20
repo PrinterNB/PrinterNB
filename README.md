@@ -1,16 +1,16 @@
-## Hi there 👋
+<!-- GitHub profile stats — live cards from github-readme-stats -->
 
-<!--
-**PrinterNB/PrinterNB** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<img src="https://github-readme-stats-card.vercel.app/api?username=PrinterNB&theme=tokyonight&hide_border=true&show_icons=true&count_private=true" alt="GitHub stats for PrinterNB" />
 
-Here are some ideas to get you started:
+<br />
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github-readme-stats-card.vercel.app/api/top-langs/?username=PrinterNB&theme=tokyonight&hide_border=true&layout=compact" alt="Top languages for PrinterNB" />
+    </td>
+    <td align="center">
+      <img src="https://github-readme-streak-stats.herokuapp.com/?user=PrinterNB&theme=tokyonight&hide_border=true" alt="GitHub streak stats for PrinterNB" />
+    </td>
+  </tr>
+</table>
