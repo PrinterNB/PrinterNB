@@ -4,7 +4,7 @@ name: Lines of code card
 
 on:
   schedule:
-    - cron: "17 4 * * *"
+    - cron: "23 0,6,12,18 * * *"
   workflow_dispatch:
 
 jobs:
