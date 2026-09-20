@@ -17,4 +17,4 @@
 
 <br />
 
-<img src="https://readme-line-counter.vercel.app/PrinterNB?category=lines&theme=sunset" alt="Total lines of code across all public repositories" />
+<img src="https://raw.githubusercontent.com/PrinterNB/PrinterNB/main/loc-card.svg" alt="Total lines of code across all public repositories" />
