@@ -1,16 +1,23 @@
-## Hi there 👋
+# Hi, I'm [Your Name] 👋
 
-<!--
-**PrinterNB/PrinterNB** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Welcome to my GitHub profile!
 
-Here are some ideas to get you started:
+## 🚀 About Me
+- 🔭 I’m currently working on **[project or focus area]**
+- 🌱 I’m currently learning **[tech/skill]**
+- 👯 I’m looking to collaborate on **[topics/projects]**
+- 💬 Ask me about **[your strengths]**
+- ⚡ Fun fact: **[something interesting]**
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 🛠️ Tech Stack
+![Languages](https://skillicons.dev/icons?i=js,ts,python,go,java,cpp)
+![Tools](https://skillicons.dev/icons?i=git,github,vscode,docker,linux)
+
+## 📊 GitHub Stats
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=PrinterNB&show_icons=true&theme=tokyonight)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=PrinterNB&layout=compact&theme=tokyonight)
+
+## 📫 Connect With Me
+- GitHub: [@PrinterNB](https://github.com/PrinterNB)
+- LinkedIn: **[your-linkedin-url]**
+- Email: **[your-email@example.com]**
