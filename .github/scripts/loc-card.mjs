@@ -1,10 +1,11 @@
 // Generates loc-card.svg: total estimated lines of code across all public repos
 // for the repo owner. Logic ported from InsideEmpire/readme-LineCounter (estimates
 // lines from the GitHub language-bytes API). Runs in GitHub Actions and locally.
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const OWNER = process.env.LOC_CARD_OWNER || "PrinterNB";
+const REPOSITORY = process.env.GITHUB_REPOSITORY || `${OWNER}/${OWNER}`;
 const API = "https://api.github.com";
 
 const headers = { "Accept": "application/vnd.github+json", "User-Agent": "loc-card" };
@@ -68,6 +69,13 @@ async function main() {
 </svg>
 `;
   writeFileSync("loc-card.svg", svg);
+  const readme = readFileSync("README.md", "utf8");
+  const locCardUrl = `https://raw.githubusercontent.com/${REPOSITORY}/main/loc-card.svg`;
+  const refreshedReadme = readme.replace(
+    /https:\/\/raw\.githubusercontent\.com\/[^"\s]+\/loc-card\.svg(?:\?v=\d+)?/,
+    `${locCardUrl}?v=${Date.now()}`
+  );
+  writeFileSync("README.md", refreshedReadme);
   console.log(`Wrote loc-card.svg with total ${value}`);
 }
 
