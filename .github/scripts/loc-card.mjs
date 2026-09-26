@@ -43,6 +43,7 @@ const BYTES_PER_LINE = {
 const estimateLines = (bytes, lang) => bytes / (BYTES_PER_LINE[lang] ?? 80);
 
 async function main() {
+  const timestamp = Date.now();
   const repos = await getRepos();
   let total = 0;
   for (const repo of repos) {
@@ -70,7 +71,7 @@ async function main() {
 `;
   writeFileSync("loc-card.svg", svg);
   const readme = readFileSync("README.md", "utf8");
-  const locCardUrl = `https://raw.githubusercontent.com/${REPOSITORY}/main/loc-card.svg?v=${Date.now()}`;
+  const locCardUrl = `https://raw.githubusercontent.com/${REPOSITORY}/main/loc-card.svg?v=${timestamp}`;
   const locCardBlock = `<!-- LOC_CARD_START -->
 <img src="${locCardUrl}" alt="Total lines of code across all public repositories" />
 <!-- LOC_CARD_END -->`;
@@ -80,7 +81,21 @@ async function main() {
       /<img\s+src="https:\/\/raw\.githubusercontent\.com\/[^"\s]+\/loc-card\.svg(?:\?v=\d+)?"\s+alt="Total lines of code across all public repositories"\s*\/>/,
       locCardBlock
     );
-  writeFileSync("README.md", refreshedReadme);
+  const withCacheBuster = (url) => (
+    /([?&])v=\d+/.test(url)
+      ? url.replace(/([?&])v=\d+/, `$1v=${timestamp}`)
+      : `${url}${url.includes("?") ? "&" : "?"}v=${timestamp}`
+  );
+  const refreshedStatsReadme = refreshedReadme
+    .replace(
+      /src="(https:\/\/github-stats-extended\.vercel\.app\/api(?:\/top-langs\/)?\?[^"]*)"/g,
+      (_, url) => `src="${withCacheBuster(url)}"`
+    )
+    .replace(
+      /src="(https:\/\/github-readme-streak-stats\.herokuapp\.com\/\?[^"]*)"/g,
+      (_, url) => `src="${withCacheBuster(url)}"`
+    );
+  writeFileSync("README.md", refreshedStatsReadme);
   console.log(`Wrote loc-card.svg with total ${value}`);
 }
 
