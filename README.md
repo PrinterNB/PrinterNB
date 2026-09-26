@@ -17,4 +17,6 @@
 
 <br />
 
+<!-- LOC_CARD_START -->
 <img src="https://raw.githubusercontent.com/PrinterNB/PrinterNB/main/loc-card.svg?v=1790397424876" alt="Total lines of code across all public repositories" />
+<!-- LOC_CARD_END -->

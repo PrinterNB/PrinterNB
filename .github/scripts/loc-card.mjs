@@ -70,11 +70,16 @@ async function main() {
 `;
   writeFileSync("loc-card.svg", svg);
   const readme = readFileSync("README.md", "utf8");
-  const locCardUrl = `https://raw.githubusercontent.com/${REPOSITORY}/main/loc-card.svg`;
-  const refreshedReadme = readme.replace(
-    /https:\/\/raw\.githubusercontent\.com\/[^"\s]+\/loc-card\.svg(?:\?v=\d+)?/,
-    `${locCardUrl}?v=${Date.now()}`
-  );
+  const locCardUrl = `https://raw.githubusercontent.com/${REPOSITORY}/main/loc-card.svg?v=${Date.now()}`;
+  const locCardBlock = `<!-- LOC_CARD_START -->
+<img src="${locCardUrl}" alt="Total lines of code across all public repositories" />
+<!-- LOC_CARD_END -->`;
+  const refreshedReadme = /<!-- LOC_CARD_START -->[\s\S]*?<!-- LOC_CARD_END -->/.test(readme)
+    ? readme.replace(/<!-- LOC_CARD_START -->[\s\S]*?<!-- LOC_CARD_END -->/, locCardBlock)
+    : readme.replace(
+      /<img\s+src="https:\/\/raw\.githubusercontent\.com\/[^"\s]+\/loc-card\.svg(?:\?v=\d+)?"\s+alt="Total lines of code across all public repositories"\s*\/>/,
+      locCardBlock
+    );
   writeFileSync("README.md", refreshedReadme);
   console.log(`Wrote loc-card.svg with total ${value}`);
 }
